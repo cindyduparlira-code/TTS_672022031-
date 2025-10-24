@@ -1,147 +1,30 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Cindy's Food Order - TTS 672022031</title>
-
-  <style>
-    /* ===== CSS INTERNAL ===== */
-    :root{
-      --bg:#f7fff9;
-      --card:#ffffff;
-      --muted:#6b6b6b;
-      --accent:#3fb77f;
-      --primary:#ffd6e0;
-      --glass: rgba(255,255,255,0.6);
-    }
-    [data-theme="dark"]{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --muted:#9aa4b2;
-      --accent:#63e6be;
-      --primary:#2b3042;
-      --glass: rgba(255,255,255,0.04);
-      color: #e6eef6;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg,var(--bg), #fff);
-      min-height:100vh;
-      color:#111827;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      display:flex;
-      flex-direction:column;
-    }
-    header{
-      background: linear-gradient(90deg,#ffd6e0, var(--accent));
-      padding:18px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      color:#06201a;
-    }
-    header .title{font-weight:700; font-size:1.1rem; display:flex; align-items:center; gap:10px}
-    header .subtitle{font-size:0.85rem; opacity:0.9}
-    .controls{display:flex; gap:8px; align-items:center}
-    .search{padding:8px 12px;border-radius:999px;border:0;outline:none;min-width:160px}
-    .container{width:95%;max-width:1100px;margin:18px auto;display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start}
-    .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
-    .card{
-      background:var(--card);
-      border-radius:14px;
-      padding:12px;
-      box-shadow:0 6px 18px rgba(2,6,23,0.06);
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-      transition:transform .18s ease, box-shadow .18s ease;
-      position:relative;
-      overflow:hidden;
-    }
-    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.12)}
-    .thumb{
-      height:140px;border-radius:10px;overflow:hidden;background:#eee;display:block;
-    }
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-    h3{margin:0;font-size:1rem}
-    .meta{font-size:0.85rem;color:var(--muted)}
-    .price{font-weight:700;color:var(--accent)}
-    .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
-    .btn{
-      background:linear-gradient(90deg,var(--accent), #2ecf91);
-      color:white;border:0;padding:8px 12px;border-radius:10px;cursor:pointer;box-shadow:0 6px 18px rgba(47,163,114,0.14);
-      transition:transform .12s ease;
-    }
-    .btn:active{transform:translateY(1px)}
-    .cart{
-      background:var(--card);border-radius:12px;padding:12px;position:sticky;top:18px;box-shadow:0 8px 24px rgba(2,6,23,0.06)
-    }
-    .cart h2{margin:0 0 8px}
-    .cart-list{display:flex;flex-direction:column;gap:8px;max-height:320px;overflow:auto;padding-right:6px}
-    .cart-item{display:flex;gap:8px;align-items:center;background:var(--glass);padding:8px;border-radius:8px}
-    .cart-item .info{flex:1}
-    .small{font-size:0.85rem;color:var(--muted)}
-    .total{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-weight:700}
-    .checkout{background:#ff8fa3;color:white;border:0;padding:10px;border-radius:10px;width:100%;cursor:pointer;margin-top:10px}
-    .empty{padding:14px;text-align:center;color:var(--muted)}
-    /* toast */
-    .toast{position:fixed;right:18px;bottom:18px;background:#0f1724;color:white;padding:12px 16px;border-radius:10px;box-shadow:0 12px 30px rgba(2,6,23,0.3);display:none;z-index:60}
-    /* animations */
-    .pulse{animation:pulse .9s ease 1}
-    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.04)}100%{transform:scale(1)}}
-    /* responsive */
-    @media (max-width:900px){
-      .container{grid-template-columns:1fr; padding-bottom:80px}
-      header{flex-direction:column; align-items:flex-start; gap:8px}
-      .cart{position:fixed;left:0;right:0;bottom:0;border-radius:12px 12px 0 0;padding:14px}
-    }
-    footer{padding:12px;text-align:center;color:var(--muted);font-size:0.9rem;margin-top:18px}
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu Kami - TTS_672022031</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <div>
-      <div class="title">🍽️ Cindy's Food Order</div>
-      <div class="subtitle">TTS - Pemesanan Makanan • Cindy Krisanti Duparlira (672022031)</div>
-    </div>
-
-    <div class="controls">
-      <input id="search" class="search" placeholder="Cari menu..." />
-      <select id="category" class="search">
-        <option value="">Semua</option>
-        <option value="Makanan">Makanan</option>
-        <option value="Minuman">Minuman</option>
-        <option value="Snack">Snack</option>
-      </select>
-      <button id="themeBtn" class="btn" title="Toggle theme">🌙</button>
-    </div>
+    <h1>🍃 Menu Kami</h1>
+    <p>Pilih menu favoritmu dan tambahkan ke keranjang!</p>
   </header>
 
-  <main class="container">
-    <section>
-      <h2 style="margin:8px 0">Menu Kami</h2>
-      <div id="menu" class="menu-grid" aria-live="polite"></div>
-    </section>
-
-    <aside class="cart" id="cartBox">
-      <h2>🛒 Keranjang</h2>
-      <div id="cartList" class="cart-list"></div>
-      <div id="empty" class="empty">Keranjang kosong — tambahkan item</div>
-      <div class="total" id="totalRow" style="display:none">
-        <span>Total</span><span id="totalPrice">Rp0</span>
-      </div>
-      <button id="checkoutBtn" class="checkout" style="display:none">Checkout</button>
-    </aside>
+  <main class="menu-container" id="menu">
   </main>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <section class="cart">
+    <h2>🛒 Keranjang</h2>
+    <ul id="cart-items"></ul>
+    <p id="total">Total: Rp0</p>
+    <button id="order-btn">Pesan Sekarang</button>
+  </section>
 
-  <footer>Silakan unduh ZIP TTS_672022031.zip dan upload ke GitHub. Good luck!</footer>
+  <footer>
+    <p>© 2025 Cindy Krisanti Duparlira - 672022031</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>

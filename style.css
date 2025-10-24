@@ -1,0 +1,76 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fdfcfb;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #f9f1ef;
+  color: #444;
+}
+
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background-color: #fffaf8;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+button {
+  background-color: #b6d7a8;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #a2c78b;
+}
+
+.cart {
+  background-color: #f1f8e9;
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f9f1ef;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+@media (max-width: 600px) {
+  .menu-container {
+    grid-template-columns: 1fr;
+  }
+}
